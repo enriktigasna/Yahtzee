@@ -6,32 +6,6 @@ import java.util.stream.IntStream;
 
 public class Main {
 
-    // Returns a random array with 5 numbers
-    public static int[] generateYahtzyArray() {
-        Random rd = new Random();
-        int[] arr = new int[5];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = rd.nextInt(6) + 1;
-        }
-        return arr;
-    }
-
-    public static int[] generateYahtzyArray(int[] originalArray, int[] skipNumbers) {
-        Random rd = new Random();
-        int[] arr = new int[5];
-        for (int i = 0; i < arr.length; i++) {
-
-            // Check if i is in numbers to skip, puts original number in it
-            int currentIteration = i;
-            if(IntStream.of(skipNumbers).anyMatch(n -> n == currentIteration)){
-                arr[i] = originalArray[i];
-                continue;
-            }
-            arr[i] = rd.nextInt(6) + 1;
-        }
-        return arr;
-    }
-
     public static int[] parseNumbersToSkip(String unparsed) {
         if(unparsed == ""){
             return new int[] {};
@@ -47,24 +21,35 @@ public class Main {
         return arr;
 
     }
-    public static void main(String[] args) throws IOException {
+
+    public static int[] runRound() {
         Scanner scan = new Scanner(System.in);
+
+        // Creates YahtzeeArray object
+        YahtzeeArray yahtzeeArray = new YahtzeeArray();
+
+        // Roll first set of dice and print it
+        yahtzeeArray.generateYahtzeeArray();
+        yahtzeeArray.printDice();
+
+        for(int i = 0; i < 2; i++) {
+            System.out.print("Do you want to skip any numbers? blank to reroll entire dice. ");
+            int[] toSkip = parseNumbersToSkip(scan.nextLine());
+            yahtzeeArray.generateYahtzeeArray(toSkip);
+
+            yahtzeeArray.printDice();
+        }
+        return yahtzeeArray.array;
+    }
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to Yahtzee");
 
         // Wait for enter
         System.in.read();
 
-        System.out.println("Your dice:");
-        int[] originalYahtzyArray = generateYahtzyArray();
-        System.out.println(Arrays.toString(originalYahtzyArray));
+        int[] roundResult = runRound();
 
-        System.out.print("Do you want to skip any numbers? ");
-        String unparsedNumbersToSkip = scan.nextLine();
-
-
-        int[] toSkip = parseNumbersToSkip(unparsedNumbersToSkip);
-        int[] skippedYahtzyArray = generateYahtzyArray(originalYahtzyArray, toSkip);
-
-        System.out.println(Arrays.toString(skippedYahtzyArray));
+        System.out.println("\n\nFirst round result");
+        System.out.println(Arrays.toString(roundResult));
     }
 }
