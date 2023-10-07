@@ -122,7 +122,6 @@ public class YahtzeeCounter {
         System.out.println("SMALL STRAIGHT: " + smallStraight);
         System.out.println("LARGE STRAIGHT: " + largeStraight);
         System.out.println("CHANCE: " + chance);
-
         System.out.println("LOWER TOTAL: " + lowerTotal);
     }
 

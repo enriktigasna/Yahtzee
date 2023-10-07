@@ -1,10 +1,12 @@
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
-    static final boolean DEBUG = true;
+    static YahtzeeWindow yWin = new YahtzeeWindow();
+    static final boolean DEBUG = false;
 
     // Parses a string of numbers like "1 4 6 7 9" into an integer array
     public static int[] parseNumbers(String unparsed) {
@@ -31,17 +33,21 @@ public class Main {
 
         // Roll first set of dice and print it
         yahtzeeArray.generateYahtzeeArray();
-        yahtzeeArray.printDice();
+        System.out.println(Arrays.toString(yahtzeeArray.array));
+
+        yWin.updateButtons(yahtzeeArray.array);
+
+
 
         final int REROLLS = 2;
 
-        for(int i = 0; i < REROLLS; i++) {
+        /* for(int i = 0; i < REROLLS; i++) {
             System.out.print("Do you want to set aside any numbers? blank to reroll entire dice. ");
             int[] toSkip = parseNumbers(scan.nextLine());
             yahtzeeArray.generateYahtzeeArray(toSkip);
 
             yahtzeeArray.printDice();
-        }
+        } */
         return yahtzeeArray.array;
     }
     public static void main(String[] args) {
@@ -54,7 +60,7 @@ public class Main {
         // If debug take first round result from input
         // Else run a round using runRound() command and roll dice, set aside etc.
         if(!DEBUG) {
-            roundResult = runRound();
+            yWin.rollButton.addActionListener(e -> runRound());
         } else {
 
             // Debug Mode
@@ -68,13 +74,6 @@ public class Main {
             }
         }
 
-
-        System.out.println("\n\nFirst round result");
-        System.out.println(Arrays.toString(roundResult));
-
-        YahtzeeCounter counter = new YahtzeeCounter();
-        counter.calculateValues(roundResult);
-        counter.printValues();
 
     }
 }
