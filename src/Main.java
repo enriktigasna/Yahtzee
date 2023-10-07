@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    static YahtzeeArray yahtzeeArray = new YahtzeeArray();
     static YahtzeeWindow yWin = new YahtzeeWindow();
     static final boolean DEBUG = false;
 
@@ -28,26 +29,11 @@ public class Main {
     public static int[] runRound() {
         Scanner scan = new Scanner(System.in);
 
-        // Creates YahtzeeArray object
-        YahtzeeArray yahtzeeArray = new YahtzeeArray();
-
         // Roll first set of dice and print it
-        yahtzeeArray.generateYahtzeeArray();
-        System.out.println(Arrays.toString(yahtzeeArray.array));
-
+        yahtzeeArray.generateYahtzeeArray(yWin.skippedDice);
         yWin.updateButtons(yahtzeeArray.array);
 
-
-
-        final int REROLLS = 2;
-
-        /* for(int i = 0; i < REROLLS; i++) {
-            System.out.print("Do you want to set aside any numbers? blank to reroll entire dice. ");
-            int[] toSkip = parseNumbers(scan.nextLine());
-            yahtzeeArray.generateYahtzeeArray(toSkip);
-
-            yahtzeeArray.printDice();
-        } */
+        yWin.skippedDice = new int[] {0, 0, 0, 0, 0}; // Reset skipped
         return yahtzeeArray.array;
     }
     public static void main(String[] args) {
@@ -59,20 +45,9 @@ public class Main {
 
         // If debug take first round result from input
         // Else run a round using runRound() command and roll dice, set aside etc.
-        if(!DEBUG) {
-            yWin.rollButton.addActionListener(e -> runRound());
-        } else {
 
-            // Debug Mode
-            System.out.println("Enter Yahtzee numbers to evaluate");
-            roundResult = parseNumbers(scan.nextLine());
+        yWin.rollButton.addActionListener(e -> runRound());
 
-            // parseNumbers subtracts one from each integer in the array, to make indexes work, have to add one to each for the debug.
-            // A bit hacky will have to refactor this later
-            for(int i = 0; i < roundResult.length; i++) {
-                roundResult[i]++;
-            }
-        }
 
 
     }

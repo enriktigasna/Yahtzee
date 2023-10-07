@@ -12,7 +12,7 @@ public class YahtzeeArray {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rd.nextInt(6) + 1;
         }
-        this.array = arr;
+        array = arr;
         return arr;
     }
 
@@ -28,9 +28,8 @@ public class YahtzeeArray {
         for (int i = 0; i < arr.length; i++) {
 
             // Check if I is in numbers to skip, puts original number in it
-            int currentIteration = i;
-            if(IntStream.of(skipNumbers).anyMatch(n -> n == currentIteration)){
-                arr[i] = this.array[i];
+            if(skipNumbers[i] == 1){
+                arr[i] = array[i];
                 continue;
             }
             arr[i] = rd.nextInt(6) + 1;

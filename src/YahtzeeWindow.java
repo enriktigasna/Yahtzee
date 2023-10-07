@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class YahtzeeWindow extends JFrame {
 
@@ -7,17 +10,35 @@ public class YahtzeeWindow extends JFrame {
     public JButton[] buttons = new JButton[5];
     public JButton rollButton = new JButton("Roll");
 
+    public int[] skippedDice = new int[] {0, 0, 0, 0, 0};
+
+
+    private void toggleSkip(int index) {
+        if(skippedDice[index] == 0) {
+            skippedDice[index] = 1;
+            buttons[index].setBackground(Color.RED);
+        } else {
+            skippedDice[index] = 0;
+            buttons[index].setBackground(Color.WHITE);
+        }
+    }
 
     public void updateButtons(int[] dice){
         for(int i = 0; i < dice.length; i++) {
-            if(this.buttons[i] != null){
-                remove(this.buttons[i]);
+            if(buttons[i] != null){
+                remove(buttons[i]);
             }
 
-            this.buttons[i] = new JButton(String.valueOf(dice[i]));
-            this.buttons[i].setBounds((i+1)*100, 200, 50, 40);
-            add(this.buttons[i]);
+            buttons[i] = new JButton(String.valueOf(dice[i]));
+            buttons[i].setBounds((i+1)*100, 200, 50, 40);
+            buttons[i].setBackground(Color.WHITE);
+            buttons[i].setFocusPainted(false);
+
+            add(buttons[i]);
             buttons[i].updateUI();
+
+            int tmp = i;
+            buttons[i].addActionListener(e -> toggleSkip(tmp));
         }
     }
 
