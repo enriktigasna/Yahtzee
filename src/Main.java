@@ -32,8 +32,10 @@ public class Main {
         yahtzeeArray.generateYahtzeeArray();
         yahtzeeArray.printDice();
 
-        for(int i = 0; i < 2; i++) {
-            System.out.print("Do you want to skip any numbers? blank to reroll entire dice. ");
+        final int REROLLS = 2;
+
+        for(int i = 0; i < REROLLS; i++) {
+            System.out.print("Do you want to set aside any numbers? blank to reroll entire dice. ");
             int[] toSkip = parseNumbersToSkip(scan.nextLine());
             yahtzeeArray.generateYahtzeeArray(toSkip);
 
@@ -48,8 +50,14 @@ public class Main {
         System.in.read();
 
         int[] roundResult = runRound();
+        roundResult = new int[]{1, 2, 3, 4, 6};
 
         System.out.println("\n\nFirst round result");
         System.out.println(Arrays.toString(roundResult));
+
+        YatzeeCounter counter = new YatzeeCounter();
+        counter.calculateValues(roundResult);
+        counter.printValues();
+
     }
 }
