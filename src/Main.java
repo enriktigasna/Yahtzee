@@ -1,13 +1,14 @@
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.Random;
+import java.util.Objects;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class Main {
 
-    public static int[] parseNumbersToSkip(String unparsed) {
-        if(unparsed == ""){
+    static final boolean DEBUG = true;
+
+    // Parses a string of numbers like "1 4 6 7 9" into an integer array
+    public static int[] parseNumbers(String unparsed) {
+        if(Objects.equals(unparsed, "")){
             return new int[] {};
         }
         String[] parsedNumbersToSkip = unparsed.split(" ");
@@ -36,26 +37,42 @@ public class Main {
 
         for(int i = 0; i < REROLLS; i++) {
             System.out.print("Do you want to set aside any numbers? blank to reroll entire dice. ");
-            int[] toSkip = parseNumbersToSkip(scan.nextLine());
+            int[] toSkip = parseNumbers(scan.nextLine());
             yahtzeeArray.generateYahtzeeArray(toSkip);
 
             yahtzeeArray.printDice();
         }
         return yahtzeeArray.array;
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println("Welcome to Yahtzee");
 
-        // Wait for enter
-        System.in.read();
+        Scanner scan = new Scanner(System.in);
 
-        int[] roundResult = runRound();
-        roundResult = new int[]{1, 2, 3, 4, 6};
+        int[] roundResult;
+
+        // If debug take first round result from input
+        // Else run a round using runRound() command and roll dice, set aside etc.
+        if(!DEBUG) {
+            roundResult = runRound();
+        } else {
+
+            // Debug Mode
+            System.out.println("Enter Yahtzee numbers to evaluate");
+            roundResult = parseNumbers(scan.nextLine());
+
+            // parseNumbers subtracts one from each integer in the array, to make indexes work, have to add one to each for the debug.
+            // A bit hacky will have to refactor this later
+            for(int i = 0; i < roundResult.length; i++) {
+                roundResult[i]++;
+            }
+        }
+
 
         System.out.println("\n\nFirst round result");
         System.out.println(Arrays.toString(roundResult));
 
-        YatzeeCounter counter = new YatzeeCounter();
+        YahtzeeCounter counter = new YahtzeeCounter();
         counter.calculateValues(roundResult);
         counter.printValues();
 
