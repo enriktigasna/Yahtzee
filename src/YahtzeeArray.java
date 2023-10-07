@@ -18,7 +18,7 @@ public class YahtzeeArray {
 
     /*
         If an integer array is provided, it skips changing the array on the skipped numbers
-        Example [0, 0, 0, 0, 0] array becomes [2, 0, 5, 0, 2] given [2, 4] as an input
+        Example [0, 0, 0, 0, 0] array becomes [2, 0, 5, 0, 2] given [0, 1, 0, 1, 0] as an input
 
         Note: 0 is an impossible number in the this.array, since you can't roll 0 on dice
      */

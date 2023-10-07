@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Created basic UI that can roll dice">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Can now set aside dice in UI">
       <change beforePath="$PROJECT_DIR$/src/YahtzeeArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/YahtzeeArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/YahtzeeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/YahtzeeWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +21,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "enriktigasna"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7982422a-b3cb-47ff-8c76-d2471d0fe1a9" />
+        <option name="url" value="https://github.com/enriktigasna/Yahtzee.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -88,7 +99,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696705910294</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Can now set aside dice in UI">
+      <option name="closed" value="true" />
+      <created>1696716521810</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696716521810</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +150,7 @@
     <MESSAGE value="Created base yahtzy array function, and skipping function&#10;&#10;Also parses input and skips based on input&#10;&#10;TODO: Refactor into OOP, create YahtzyArray class, and make functions methods of that class" />
     <MESSAGE value="Refactored into into OOP and added runRound() function that returns final result of a round&#10;&#10;TODO: Create a results table object" />
     <MESSAGE value="Created basic UI that can roll dice" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created basic UI that can roll dice" />
+    <MESSAGE value="Can now set aside dice in UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can now set aside dice in UI" />
   </component>
 </project>
