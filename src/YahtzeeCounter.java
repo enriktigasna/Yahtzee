@@ -71,10 +71,8 @@ public class YahtzeeCounter {
             this.fiveOfAKind = 50;
         }
 
-        int[] sortedArray = array;
+        int[] sortedArray = Arrays.copyOf(array, array.length);
         Arrays.sort(sortedArray);
-
-        System.out.println(Arrays.toString(sortedArray));
 
 
         // Check for small straight (Refactor into function?)
@@ -123,6 +121,26 @@ public class YahtzeeCounter {
         System.out.println("LARGE STRAIGHT: " + largeStraight);
         System.out.println("CHANCE: " + chance);
         System.out.println("LOWER TOTAL: " + lowerTotal);
+    }
+
+    // Returns values as integer array
+    public int[] deserialize() {
+        return new int[] {
+                aces,
+                twos,
+                threes,
+                fours,
+                fives,
+                sixes,
+                bonus,
+                upperTotal,
+                threeOfAKind,
+                fourOfAKind,
+                fiveOfAKind,
+                largeStraight,
+                smallStraight,
+                lowerTotal
+        };
     }
 
     // TODO: Create deserialize function that returns all values as an integer array.

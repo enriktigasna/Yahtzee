@@ -33,6 +33,12 @@ public class Main {
         yahtzeeArray.generateYahtzeeArray(yWin.skippedDice);
         yWin.updateButtons(yahtzeeArray.array);
 
+        YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
+        yahtzeeCounter.calculateValues(yahtzeeArray.array);
+
+        yWin.updateTable(yahtzeeCounter.deserialize());
+
+
         yWin.skippedDice = new int[] {0, 0, 0, 0, 0}; // Reset skipped
         return yahtzeeArray.array;
     }
