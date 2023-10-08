@@ -73,7 +73,7 @@ public class YahtzeeWindow extends JFrame {
         }
 
         table = new JTable(data, columnNames);
-        table.setBounds(600, 100, 250, 200);
+        table.setBounds(600, 50, 250, 225);
         add(table);
     }
 

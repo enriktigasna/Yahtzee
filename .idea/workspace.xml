@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Can now set aside dice in UI">
+    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Added table to UI, that shows all values from YahtzeeCounter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/YahtzeeCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/YahtzeeCounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/YahtzeeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/YahtzeeWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696716521810</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added table to UI, that shows all values from YahtzeeCounter">
+      <option name="closed" value="true" />
+      <created>1696769189918</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696769189918</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +160,7 @@
     <MESSAGE value="Refactored into into OOP and added runRound() function that returns final result of a round&#10;&#10;TODO: Create a results table object" />
     <MESSAGE value="Created basic UI that can roll dice" />
     <MESSAGE value="Can now set aside dice in UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Can now set aside dice in UI" />
+    <MESSAGE value="Added table to UI, that shows all values from YahtzeeCounter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added table to UI, that shows all values from YahtzeeCounter" />
   </component>
 </project>
