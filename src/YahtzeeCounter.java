@@ -125,7 +125,7 @@ public class YahtzeeCounter {
 
     // Returns values as integer array
     public int[] deserialize() {
-        return new int[] {
+        return new int[]{
                 aces,
                 twos,
                 threes,
@@ -142,7 +142,4 @@ public class YahtzeeCounter {
                 // lowerTotal
         };
     }
-
-    // TODO: Create deserialize function that returns all values as an integer array.
-    // For testing and such
 }

@@ -75,10 +75,16 @@ public class LockedYahtzeeCounter extends YahtzeeCounter {
         return deserialize();
     }
 
-    @Override public void calculateValues(int[] array) {
+    public void calculateTotalValues() {
+        this.totalScore = aces + twos + threes + fours + fives + sixes;
+
+        if (this.totalScore >= 63) {
+            this.bonus = 35;
+        }
+
         this.upperTotal = totalScore + bonus;
 
-        this.lowerTotal = smallStraight + largeStraight + threeOfAKind + fourOfAKind + fiveOfAKind + this.chance;
+        this.lowerTotal = smallStraight + largeStraight + threeOfAKind + fourOfAKind + fiveOfAKind + chance;
 
         this.grandTotal = upperTotal + lowerTotal;
     }

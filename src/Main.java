@@ -92,10 +92,9 @@ public class Main {
         lockingIndexTable.put("LOWER TOTAL", 12);
         lockingIndexTable.put("GRAND TOTAL", 13);
 
-        System.out.println(toLock);
-
-
         yWin.lockedYCounter.serialize(lockingIndexTable.get(toLock), yahtzeeCounter.deserialize()[lockingIndexTable.get(toLock)]);
+        yWin.lockedYCounter.calculateTotalValues();
+
         yWin.updateLockedTable(yWin.lockedYCounter.deserialize());
     }
 
