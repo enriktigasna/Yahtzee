@@ -9,6 +9,8 @@ public class YahtzeeWindow extends JFrame {
     // FOR EACH BUTTON ADD AN EVENT LISTENER THAT TRIGGERS A FUNCTION THAT TAKES INDEX OF BUTTON AS ARGUMENT
     public JButton[] buttons = new JButton[5];
     public JButton rollButton = new JButton("Roll");
+    public LockedYahtzeeCounter lockedYCounter = new LockedYahtzeeCounter();
+
     JTable table = new JTable();
     JTable lockedTable = new JTable();
 
@@ -17,6 +19,8 @@ public class YahtzeeWindow extends JFrame {
     public int[] skippedDice = new int[] {0, 0, 0, 0, 0};
     public int rerollsLeft = 2;
     public JLabel rerollText = new JLabel();
+
+    String[] options = { "brownie", "pie", "cake" };
 
 
     private void toggleSkip(int index) {
@@ -85,7 +89,7 @@ public class YahtzeeWindow extends JFrame {
         }
 
         table = new JTable(data, columnNames);
-        table.setBounds(600, 50, 250, 200);
+        table.setBounds(600, 50, 250, 190);
         add(table);
     }
 
@@ -103,12 +107,12 @@ public class YahtzeeWindow extends JFrame {
                 {"FIVES", new String(String.valueOf(0))},
                 {"SIXES", new String(String.valueOf(0))},
                 {"BONUS", new String(String.valueOf(0))},
-                {"UPPER TOTAL", new String(String.valueOf(0))},
                 {"THREE OF A KIND", new String(String.valueOf(0))},
                 {"FOUR OF A KIND", new String(String.valueOf(0))},
                 {"YAHTZEE", new String(String.valueOf(0))},
                 {"LARGE STRAIGHT", new String(String.valueOf(0))},
                 {"SMALL STRAIGHT", new String(String.valueOf(0))},
+                {"UPPER TOTAL", new String(String.valueOf(0))},
                 {"LOWER TOTAL", new String(String.valueOf(0))},
                 {"GRAND TOTAL", new String(String.valueOf(0))},
         };
@@ -117,7 +121,7 @@ public class YahtzeeWindow extends JFrame {
         }
 
         lockedTable = new JTable(data, columnNames);
-        lockedTable.setBounds(600, 250, 250, 225);
+        lockedTable.setBounds(600, 250, 250, 240);
         add(lockedTable);
     }
 
@@ -125,6 +129,30 @@ public class YahtzeeWindow extends JFrame {
         rerollText.setText("Rerolls left: " + String.valueOf(rerollsLeft));
         rerollText.setBounds(50, 0, 100, 40);
         add(rerollText);
+    }
+
+    public String createLockingPopup() {
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Please make a selection:"));
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement("ACES");
+        model.addElement("TWOS");
+        model.addElement("THREES");
+        model.addElement("FOURS");
+        model.addElement("FIVES");
+        model.addElement("SIXES");
+        model.addElement("BONUS");
+        model.addElement("THREE OF A KIND");
+        model.addElement("FOUR OF A KIND");
+        model.addElement("YAHTZEE");
+        model.addElement("LARGE STRAIGHT");
+        model.addElement("SMALL STRAIGHT");
+
+        JComboBox comboBox = new JComboBox(model);
+        panel.add(comboBox);
+
+        int result = JOptionPane.showConfirmDialog(this, panel, "What score to lock?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        return comboBox.getSelectedItem().toString();
     }
 
 

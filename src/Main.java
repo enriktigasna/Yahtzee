@@ -1,11 +1,10 @@
 import javax.swing.*;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     static YahtzeeArray yahtzeeArray = new YahtzeeArray();
+    static YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
     static YahtzeeWindow yWin = new YahtzeeWindow();
     static final boolean DEBUG = false;
 
@@ -38,6 +37,8 @@ public class Main {
         // If out of rerolls reset
         if(yWin.rerollsLeft < 0) {
             // TODO: Create function that locks a value
+            String toLock = yWin.createLockingPopup();
+            lock(toLock);
 
             yWin.rerollsLeft = 2;
             yWin.updateRerolls();
@@ -45,7 +46,6 @@ public class Main {
             yahtzeeArray.generateYahtzeeArray();
             yWin.updateButtons(yahtzeeArray.array);
 
-            YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
             yahtzeeCounter.calculateValues(yahtzeeArray.array);
 
             yWin.updateTable(yahtzeeCounter.deserialize());
@@ -56,8 +56,6 @@ public class Main {
         if(yWin.rerollsLeft >= 0) {
             yahtzeeArray.generateYahtzeeArray(yWin.skippedDice);
             yWin.updateButtons(yahtzeeArray.array);
-
-            YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
             yahtzeeCounter.calculateValues(yahtzeeArray.array);
 
             yWin.updateTable(yahtzeeCounter.deserialize());
@@ -66,6 +64,32 @@ public class Main {
         yWin.skippedDice = new int[] {0, 0, 0, 0, 0}; // Reset skipped
         return yahtzeeArray.array;
     }
+
+    private static void lock(String toLock) {
+        Dictionary<String, Integer> lockingIndexTable = new Hashtable<>();
+
+        lockingIndexTable.put("ACES", 0);
+        lockingIndexTable.put("TWOS", 1);
+        lockingIndexTable.put("THREES", 2);
+        lockingIndexTable.put("FOURS", 3);
+        lockingIndexTable.put("FIVES", 4);
+        lockingIndexTable.put("SIXES", 5);
+        lockingIndexTable.put("BONUS", 6);
+        lockingIndexTable.put("THREE OF A KIND", 7);
+        lockingIndexTable.put("FOUR OF A KIND", 8);
+        lockingIndexTable.put("YAHTZEE", 9);
+        lockingIndexTable.put("LARGE STRAIGHT", 10);
+        lockingIndexTable.put("SMALL STRAIGHT", 11);
+        lockingIndexTable.put("LOWER TOTAL", 12);
+        lockingIndexTable.put("GRAND TOTAL", 13);
+
+        System.out.println(toLock);
+
+
+        yWin.lockedYCounter.serialize(lockingIndexTable.get(toLock), yahtzeeCounter.deserialize()[lockingIndexTable.get(toLock)]);
+        yWin.updateLockedTable(yWin.lockedYCounter.deserialize());
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Yahtzee");
 
