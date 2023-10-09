@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Created locked table&#10;&#10;TODO: Implement lock function">
+    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Implemented functional locking&#10;&#10;TODO: Add 13 rounds, and then I am done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LockedYahtzeeCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LockedYahtzeeCounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/YahtzeeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/YahtzeeWindow.java" afterDir="false" />
     </list>
@@ -142,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696864260509</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implemented functional locking&#10;&#10;TODO: Add 13 rounds, and then I am done">
+      <option name="closed" value="true" />
+      <created>1696873743228</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696873743228</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,6 +197,7 @@
     <MESSAGE value="Slightly updated UI to make table correct" />
     <MESSAGE value="Added limited rerolls&#10;&#10;TODO: Create locked table" />
     <MESSAGE value="Created locked table&#10;&#10;TODO: Implement lock function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created locked table&#10;&#10;TODO: Implement lock function" />
+    <MESSAGE value="Implemented functional locking&#10;&#10;TODO: Add 13 rounds, and then I am done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented functional locking&#10;&#10;TODO: Add 13 rounds, and then I am done" />
   </component>
 </project>

@@ -19,6 +19,7 @@ public class YahtzeeWindow extends JFrame {
     public int[] skippedDice = new int[] {0, 0, 0, 0, 0};
     public int rerollsLeft = 2;
     public JLabel rerollText = new JLabel();
+    public JLabel roundText = new JLabel();
 
     String[] options = { "brownie", "pie", "cake" };
 
@@ -131,6 +132,12 @@ public class YahtzeeWindow extends JFrame {
         add(rerollText);
     }
 
+    public void updateRounds(int roundsLeft) {
+        roundText.setText("Rounds left: " + String.valueOf(roundsLeft));
+        roundText.setBounds(480, 0, 100, 40);
+        add(roundText);
+    }
+
     public String createLockingPopup() {
         JPanel panel = new JPanel();
         panel.add(new JLabel("Please make a selection:"));
@@ -169,5 +176,6 @@ public class YahtzeeWindow extends JFrame {
         updateTable(new int[5]);
         updateLockedTable(new int[5]);
         updateRerolls();
+        updateRounds(13);
     }
 }

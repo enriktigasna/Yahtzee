@@ -6,6 +6,8 @@ public class Main {
     static YahtzeeArray yahtzeeArray = new YahtzeeArray();
     static YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
     static YahtzeeWindow yWin = new YahtzeeWindow();
+
+    static int roundsLeft = 13;
     static final boolean DEBUG = false;
 
     // Parses a string of numbers like "1 4 6 7 9" into an integer array
@@ -50,6 +52,9 @@ public class Main {
 
             yWin.updateTable(yahtzeeCounter.deserialize());
             yWin.resetButtons();
+
+            roundsLeft--;
+            yWin.updateRounds(roundsLeft);
         }
 
         // Roll first set of dice and print it
@@ -61,6 +66,10 @@ public class Main {
             yWin.updateTable(yahtzeeCounter.deserialize());
         }
 
+        if(roundsLeft == 0){
+            yWin.remove(yWin.rollButton);
+            yWin.rollButton.setVisible(false);
+        }
         yWin.skippedDice = new int[] {0, 0, 0, 0, 0}; // Reset skipped
         return yahtzeeArray.array;
     }
