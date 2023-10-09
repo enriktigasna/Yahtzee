@@ -11,9 +11,11 @@ public class YahtzeeWindow extends JFrame {
     public JButton rollButton = new JButton("Roll");
     JTable table = new JTable();
 
-    public int[] currentDice;
+    public int[] currentDice = new int[5];
 
     public int[] skippedDice = new int[] {0, 0, 0, 0, 0};
+    public int rerollsLeft = 2;
+    public JLabel rerollText = new JLabel();
 
 
     private void toggleSkip(int index) {
@@ -23,6 +25,15 @@ public class YahtzeeWindow extends JFrame {
         } else {
             skippedDice[index] = 0;
             buttons[index].setBackground(Color.WHITE);
+        }
+    }
+
+    public void resetButtons() {
+        currentDice = new int[5];
+        for(int i = 0; i < buttons.length; i++) {
+            buttons[i].setVisible(false);
+            remove(buttons[i]);
+            buttons[i].updateUI();
         }
     }
 
@@ -76,6 +87,11 @@ public class YahtzeeWindow extends JFrame {
         table.setBounds(600, 50, 250, 225);
         add(table);
     }
+    public void updateRerolls() {
+        rerollText.setText("Rerolls left: " + String.valueOf(rerollsLeft));
+        rerollText.setBounds(50, 50, 100, 40);
+        add(rerollText);
+    }
 
 
     YahtzeeWindow() {
@@ -87,6 +103,8 @@ public class YahtzeeWindow extends JFrame {
         setSize(900, 500);
         setLayout(null);
         setVisible(true);
-        updateTable(new int[] {1, 2, 3, 4, 5, 6});
+        updateTable(currentDice);
+
+        updateRerolls();
     }
 }

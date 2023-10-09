@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Added table to UI, that shows all values from YahtzeeCounter">
+    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Slightly updated UI to make table correct">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/YahtzeeWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/YahtzeeWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696769189918</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Slightly updated UI to make table correct">
+      <option name="closed" value="true" />
+      <created>1696769376803</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696769376803</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +170,7 @@
     <MESSAGE value="Created basic UI that can roll dice" />
     <MESSAGE value="Can now set aside dice in UI" />
     <MESSAGE value="Added table to UI, that shows all values from YahtzeeCounter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added table to UI, that shows all values from YahtzeeCounter" />
+    <MESSAGE value="Slightly updated UI to make table correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slightly updated UI to make table correct" />
   </component>
 </project>

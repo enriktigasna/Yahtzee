@@ -29,15 +29,38 @@ public class Main {
     public static int[] runRound() {
         Scanner scan = new Scanner(System.in);
 
+        // Doesn't subtract rerolls if it's initial roll
+        System.out.println(yWin.currentDice[0]);
+        if(yWin.currentDice[0] != 0) {
+            yWin.rerollsLeft--;
+            yWin.updateRerolls();
+        }
+
+        // If out of rerolls reset
+        if(yWin.rerollsLeft < 0) {
+            yWin.rerollsLeft = 2;
+            yWin.updateRerolls();
+
+            yahtzeeArray.generateYahtzeeArray();
+            yWin.updateButtons(yahtzeeArray.array);
+
+            YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
+            yahtzeeCounter.calculateValues(yahtzeeArray.array);
+
+            yWin.updateTable(yahtzeeCounter.deserialize());
+            yWin.resetButtons();
+        }
+
         // Roll first set of dice and print it
-        yahtzeeArray.generateYahtzeeArray(yWin.skippedDice);
-        yWin.updateButtons(yahtzeeArray.array);
+        if(yWin.rerollsLeft >= 0) {
+            yahtzeeArray.generateYahtzeeArray(yWin.skippedDice);
+            yWin.updateButtons(yahtzeeArray.array);
 
-        YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
-        yahtzeeCounter.calculateValues(yahtzeeArray.array);
+            YahtzeeCounter yahtzeeCounter = new YahtzeeCounter();
+            yahtzeeCounter.calculateValues(yahtzeeArray.array);
 
-        yWin.updateTable(yahtzeeCounter.deserialize());
-
+            yWin.updateTable(yahtzeeCounter.deserialize());
+        }
 
         yWin.skippedDice = new int[] {0, 0, 0, 0, 0}; // Reset skipped
         return yahtzeeArray.array;
@@ -53,6 +76,7 @@ public class Main {
         // Else run a round using runRound() command and roll dice, set aside etc.
 
         yWin.rollButton.addActionListener(e -> runRound());
+
 
 
 
