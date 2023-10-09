@@ -30,7 +30,6 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         // Doesn't subtract rerolls if it's initial roll
-        System.out.println(yWin.currentDice[0]);
         if(yWin.currentDice[0] != 0) {
             yWin.rerollsLeft--;
             yWin.updateRerolls();
@@ -38,6 +37,8 @@ public class Main {
 
         // If out of rerolls reset
         if(yWin.rerollsLeft < 0) {
+            // TODO: Create function that locks a value
+
             yWin.rerollsLeft = 2;
             yWin.updateRerolls();
 
@@ -76,9 +77,5 @@ public class Main {
         // Else run a round using runRound() command and roll dice, set aside etc.
 
         yWin.rollButton.addActionListener(e -> runRound());
-
-
-
-
     }
 }

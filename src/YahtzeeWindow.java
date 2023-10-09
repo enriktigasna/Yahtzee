@@ -10,6 +10,7 @@ public class YahtzeeWindow extends JFrame {
     public JButton[] buttons = new JButton[5];
     public JButton rollButton = new JButton("Roll");
     JTable table = new JTable();
+    JTable lockedTable = new JTable();
 
     public int[] currentDice = new int[5];
 
@@ -71,6 +72,37 @@ public class YahtzeeWindow extends JFrame {
                 {"FIVES", new String(String.valueOf(0))},
                 {"SIXES", new String(String.valueOf(0))},
                 {"BONUS", new String(String.valueOf(0))},
+                // {"UPPER TOTAL", new String(String.valueOf(0))},
+                {"THREE OF A KIND", new String(String.valueOf(0))},
+                {"FOUR OF A KIND", new String(String.valueOf(0))},
+                {"YAHTZEE", new String(String.valueOf(0))},
+                {"LARGE STRAIGHT", new String(String.valueOf(0))},
+                {"SMALL STRAIGHT", new String(String.valueOf(0))},
+                // {"LOWER TOTAL", new String(String.valueOf(0))},
+        };
+        for(int i = 0; i < values.length; i++) {
+            data[i][1] = values[i];
+        }
+
+        table = new JTable(data, columnNames);
+        table.setBounds(600, 50, 250, 200);
+        add(table);
+    }
+
+    public void updateLockedTable (int[] values) {
+        if(lockedTable != null) {
+            remove(lockedTable);
+        }
+
+        String[] columnNames = {"UPPER SECTION", "Value"};
+        Object[][] data = {
+                {"ACES", new String(String.valueOf(0))},
+                {"TWOS", new String(String.valueOf(0))},
+                {"THREES", new String(String.valueOf(0))},
+                {"FOURS", new String(String.valueOf(0))},
+                {"FIVES", new String(String.valueOf(0))},
+                {"SIXES", new String(String.valueOf(0))},
+                {"BONUS", new String(String.valueOf(0))},
                 {"UPPER TOTAL", new String(String.valueOf(0))},
                 {"THREE OF A KIND", new String(String.valueOf(0))},
                 {"FOUR OF A KIND", new String(String.valueOf(0))},
@@ -78,18 +110,20 @@ public class YahtzeeWindow extends JFrame {
                 {"LARGE STRAIGHT", new String(String.valueOf(0))},
                 {"SMALL STRAIGHT", new String(String.valueOf(0))},
                 {"LOWER TOTAL", new String(String.valueOf(0))},
+                {"GRAND TOTAL", new String(String.valueOf(0))},
         };
         for(int i = 0; i < values.length; i++) {
             data[i][1] = values[i];
         }
 
-        table = new JTable(data, columnNames);
-        table.setBounds(600, 50, 250, 225);
-        add(table);
+        lockedTable = new JTable(data, columnNames);
+        lockedTable.setBounds(600, 250, 250, 225);
+        add(lockedTable);
     }
+
     public void updateRerolls() {
         rerollText.setText("Rerolls left: " + String.valueOf(rerollsLeft));
-        rerollText.setBounds(50, 50, 100, 40);
+        rerollText.setBounds(50, 0, 100, 40);
         add(rerollText);
     }
 
@@ -100,11 +134,12 @@ public class YahtzeeWindow extends JFrame {
         rollButton.setBounds(275, 100, 100, 40);
         add(rollButton);
 
-        setSize(900, 500);
+        setSize(900, 550);
         setLayout(null);
         setVisible(true);
-        updateTable(currentDice);
 
+        updateTable(new int[5]);
+        updateLockedTable(new int[5]);
         updateRerolls();
     }
 }

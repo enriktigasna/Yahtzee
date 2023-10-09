@@ -133,13 +133,13 @@ public class YahtzeeCounter {
                 fives,
                 sixes,
                 bonus,
-                upperTotal,
+                // upperTotal,
                 threeOfAKind,
                 fourOfAKind,
                 fiveOfAKind,
                 largeStraight,
                 smallStraight,
-                lowerTotal
+                // lowerTotal
         };
     }
 
