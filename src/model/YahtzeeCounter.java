@@ -31,7 +31,6 @@ public class YahtzeeCounter {
         }
         return count;
     }
-
     private static int findIndex(int [] array, int value)
     {
         for(int i=0;i<array.length;i++)
@@ -42,9 +41,7 @@ public class YahtzeeCounter {
             }
         }
         return -1;
-
     }
-
     public boolean nOfAKind(int[] values, int n) {
         return findIndex(values, n) != -1;
     }
@@ -101,28 +98,6 @@ public class YahtzeeCounter {
 
 
     }
-
-    public void printValues() {
-        System.out.println("ACES: " + aces);
-        System.out.println("TWOS: " + twos);
-        System.out.println("THREES: " + threes);
-        System.out.println("FOURS: " + fours);
-        System.out.println("FIVES: " + fives);
-        System.out.println("SIXES: " + sixes);
-        System.out.println("BONUS: " + bonus);
-        System.out.println("UPPER TOTAL: " + upperTotal);
-
-        System.out.println();
-
-        System.out.println("THREE OF A KIND: " + threeOfAKind);
-        System.out.println("FOUR OF A KIND: " + fourOfAKind);
-        System.out.println("YAHTZEE: " + fiveOfAKind);
-        System.out.println("SMALL STRAIGHT: " + smallStraight);
-        System.out.println("LARGE STRAIGHT: " + largeStraight);
-        System.out.println("CHANCE: " + chance);
-        System.out.println("LOWER TOTAL: " + lowerTotal);
-    }
-
     // Returns values as integer array
     public int[] deserialize() {
         return new int[]{

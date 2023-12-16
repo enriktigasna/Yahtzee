@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Implemented functional locking and rounds&#10;&#10;Yahtzee is now fully playable">
+    <list default="true" id="ba98ed1a-653b-4f7b-a716-84b4045d5b8f" name="Changes" comment="Bug fixes&#10;&#10;changed calculateValues override to calculateTotalValues(), and fixed upper total, aswell as bonus.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LockedYahtzeeCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LockedYahtzeeCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/YahtzeeCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/YahtzeeCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LockedYahtzeeCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/YahtzeeArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/YahtzeeCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/YahtzeeWindow.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696875411647</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Bug fixes&#10;&#10;changed calculateValues override to calculateTotalValues(), and fixed upper total, aswell as bonus.">
+      <option name="closed" value="true" />
+      <created>1696887885904</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1696887885904</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +217,7 @@
     <MESSAGE value="Created locked table&#10;&#10;TODO: Implement lock function" />
     <MESSAGE value="Implemented functional locking&#10;&#10;TODO: Add 13 rounds, and then I am done" />
     <MESSAGE value="Implemented functional locking and rounds&#10;&#10;Yahtzee is now fully playable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented functional locking and rounds&#10;&#10;Yahtzee is now fully playable" />
+    <MESSAGE value="Bug fixes&#10;&#10;changed calculateValues override to calculateTotalValues(), and fixed upper total, aswell as bonus." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes&#10;&#10;changed calculateValues override to calculateTotalValues(), and fixed upper total, aswell as bonus." />
   </component>
 </project>

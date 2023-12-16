@@ -101,24 +101,24 @@ public class YahtzeeWindow extends JFrame {
 
         String[] columnNames = {"UPPER SECTION", "Value"};
         Object[][] data = {
-                {"ACES", new String(String.valueOf(0))},
-                {"TWOS", new String(String.valueOf(0))},
-                {"THREES", new String(String.valueOf(0))},
-                {"FOURS", new String(String.valueOf(0))},
-                {"FIVES", new String(String.valueOf(0))},
-                {"SIXES", new String(String.valueOf(0))},
-                {"BONUS", new String(String.valueOf(0))},
-                {"THREE OF A KIND", new String(String.valueOf(0))},
-                {"FOUR OF A KIND", new String(String.valueOf(0))},
-                {"YAHTZEE", new String(String.valueOf(0))},
-                {"LARGE STRAIGHT", new String(String.valueOf(0))},
-                {"SMALL STRAIGHT", new String(String.valueOf(0))},
-                {"UPPER TOTAL", new String(String.valueOf(0))},
-                {"LOWER TOTAL", new String(String.valueOf(0))},
-                {"GRAND TOTAL", new String(String.valueOf(0))},
+                {"ACES", "0"},
+                {"TWOS", "0"},
+                {"THREES", "0"},
+                {"FOURS", "0"},
+                {"FIVES", "0"},
+                {"SIXES", "0"},
+                {"BONUS", "0"},
+                {"THREE OF A KIND", "0"},
+                {"FOUR OF A KIND", "0"},
+                {"YAHTZEE", "0"},
+                {"LARGE STRAIGHT", "0"},
+                {"SMALL STRAIGHT", "0"},
+                {"UPPER TOTAL", "0"},
+                {"LOWER TOTAL", "0"},
+                {"GRAND TOTAL", "0"},
         };
         for(int i = 0; i < values.length; i++) {
-            data[i][1] = values[i];
+            data[i][1] = String.valueOf(values[i]);
         }
 
         lockedTable = new JTable(data, columnNames);
@@ -142,18 +142,16 @@ public class YahtzeeWindow extends JFrame {
         JPanel panel = new JPanel();
         panel.add(new JLabel("Please make a selection:"));
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-        model.addElement("ACES");
-        model.addElement("TWOS");
-        model.addElement("THREES");
-        model.addElement("FOURS");
-        model.addElement("FIVES");
-        model.addElement("SIXES");
-        model.addElement("BONUS");
-        model.addElement("THREE OF A KIND");
-        model.addElement("FOUR OF A KIND");
-        model.addElement("YAHTZEE");
-        model.addElement("LARGE STRAIGHT");
-        model.addElement("SMALL STRAIGHT");
+
+        String[] elements = {
+            "ACES", "TWOS", "THREES", "FOURS", "FIVES",
+            "SIXES", "BONUS", "THREE OF A KIND", "FOUR OF A KIND",
+            "YAHTZEE", "LARGE STRAIGHT", "SMALL STRAIGHT"
+        };
+
+        for (String element : elements) {
+            model.addElement(element);
+        }
 
         JComboBox comboBox = new JComboBox(model);
         panel.add(comboBox);

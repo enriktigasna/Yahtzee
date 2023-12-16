@@ -15,7 +15,6 @@ public class YahtzeeArray {
         array = arr;
         return arr;
     }
-
     /*
         If an integer array is provided, it skips changing the array on the skipped numbers
         Example [0, 0, 0, 0, 0] array becomes [2, 0, 5, 0, 2] given [0, 1, 0, 1, 0] as an input
@@ -37,10 +36,8 @@ public class YahtzeeArray {
         this.array = arr;
         return arr;
     }
-
     public void printDice() {
         System.out.println("Your current dice:");
         System.out.println(Arrays.toString(this.array));
     }
-
 }
